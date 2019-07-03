@@ -12,7 +12,7 @@ services:
       - web
   web:
     build: .
-    image: samrtmp/django-docker
+    iamge: django-docker-web
     container_name: web_c
     depends_on:
       - db
