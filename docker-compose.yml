@@ -2,7 +2,7 @@ version: '2'
 services:  
   nginx:
     image: nginx:alpine
-    container_name: nz01
+    container_name: nginx_c
     ports:
       - "8000:8000"
     volumes:
@@ -12,7 +12,8 @@ services:
       - web
   web:
     build: .
-    container_name: dz01
+    image: samrtmp/django-docker
+    container_name: web_c
     depends_on:
       - db
     volumes:
@@ -23,9 +24,9 @@ services:
       - redis
   db:
     image: postgres:alpine
-    container_name: pz01
+    container_name: postgres_c
   redis:
     image: redis:alpine
-    container_name: rz01
+    container_name: redis_c
     ports:
-     - '6379:6379'
+     - '6377:6379'
