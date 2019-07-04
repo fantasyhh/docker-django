@@ -29,4 +29,4 @@ services:
     image: redis:alpine
     container_name: redis_c
     ports:
-     - '6377:6379'
+     - '6379:6379'

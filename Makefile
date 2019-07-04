@@ -35,4 +35,4 @@ log-db:
 	docker-compose logs db
 
 collectstatic:
-	docker exec dz01 /bin/sh -c "python manage.py collectstatic --noinput"  
+	docker exec web_c /bin/sh -c "python manage.py collectstatic --noinput"  
