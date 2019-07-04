@@ -12,7 +12,7 @@ services:
       - web
   web:
     build: .
-    iamge: django-docker-web
+    image: django-docker-web
     container_name: web_c
     depends_on:
       - db
