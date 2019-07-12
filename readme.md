@@ -1,41 +1,11 @@
-## Deploy Django using Nginx, Celery, Redis and Postgresql with Docker
-A boilerplate to deploy Django with cool stuff. Also serves as an example project from these tutorial:
-1. <a href="https://ruddra.com/docker-django-nginx-postgres/">Deploy Django, Gunicorn, NGINX, Postgresql using Docker</a>
-2. <a href="https://ruddra.com/serve-static-files-by-nginx-from-django-using-docker/">Serve Static Files by Nginx from Django using Docker</a>
-3. <a href="https://ruddra.com/docker-do-stuff-using-celery-using-redis-as-broker/">Docker: Use Celery in Django(Redis as Broker)</a>
+#### 这个分支主要用于调试接口阶段，且没有用到Celery，或者其他数据库，也不用makemigrate，最主要的好处就是在于你可以把调试的server放在容器里运行着，让前端自个儿调试去，不用手动开开关关
 
-Where it is described how this boilerplate was created from scratch so that you can build your own.
+#### 1. 替换requirements.txt文件
+#### 2. 将docker-compose.yml文件中的所有mydjango换成你的项目名字，特别是`volumes`中`./mydjango`换成自己项目的路径
+#### 3. 可以选择修改端口`8888"8000`,8000不必动，修改8888为你要的端口即可
+#### 4. 最好将此文件的目录`docker-django`也改成你的项目名字，这只会影响你的network命名以及volume命名，纯粹为了美观以及增加辨识度
 
-### Basic Usage
-1. First run `make build` inside root directory.
-2. Then run `make up` to start up the project for first time.
 
-Checkout the [commands](#commands) section for more usage.
+### 结束
 
-### Preview
-A default Django project resides in `src` directory. So, when you start the project, you will see the following screen in `8000` port:
 
-![Demo One](https://github.com/ruddra/blog-images/raw/master/Demo%201.png)
-
-Also when you access the django container log via `make log-web`, you will see the following:
-
-![Demo Two](https://github.com/ruddra/blog-images/raw/master/Demo%202.png)
-
-### Commands
-To use this project, run this commands:
-
-1. `make up` to build the project and starting containers.
-2. `make build` to build the project.
-3. `make start` to start containers if project has been up already.
-4. `make stop` to stop containers.
-5. `make shell-web` to shell access web container.
-6. `make shell-db` to shell access db container.
-7. `make shell-nginx` to shell access nginx container.
-8. `make logs-web` to log access web container.
-9. `make logs-db` to log access db container.
-10. `make logs-nginx` to log access nginx container.
-11. `make collectstatic` to put static files in static directory.
-12. `make log-web` to log access web container.
-13. `make log-db` to log access db container.
-14. `make log-nginx` to log access nginx container.
-14. `make restart` to restart containers.

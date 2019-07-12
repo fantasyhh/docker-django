@@ -1,32 +1,19 @@
-version: '2'  
-services:  
-  nginx:
-    image: nginx:alpine
-    container_name: nginx_c
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./src:/src
-      - ./config/nginx:/etc/nginx/conf.d
-    depends_on:
-      - web
+version: '3.7'
+services:
   web:
     build: .
-    image: django-docker-web
-    container_name: web_c
-    depends_on:
-      - db
+    image: mydjango
+    container_name: mydjango_web
     volumes:
-      - ./src:/src
-    expose:
-      - "8000"
-    links:
-      - redis
-  db:
-    image: postgres:alpine
-    container_name: postgres_c
-  redis:
-    image: redis:alpine
-    container_name: redis_c
+      - ./mydjango:/src
     ports:
-     - '6379:6379'
+      - '8888:8000'
+    networks:
+      - backend
+
+networks:
+  backend:
+
+volumes:
+  mydjango:
+

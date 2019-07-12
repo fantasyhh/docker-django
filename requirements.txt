@@ -1,0 +1,8 @@
+Django==2.2.3
+django-cors-headers==2.5.2
+django-extensions==2.1.6
+djangorestframework==3.9.2
+django-model-utils==3.2.0
+celery==4.3.0
+
+
